@@ -12,61 +12,63 @@ body {
 
 .main {
   margin: 30px 15% 0 15%;
+  text-align: center;
 }
 
-.btn-area {
-  /* margin-left: 35%; */
+.btn {
+  color: #FFF;
+  border-radius: 7px;
+  display: inline-block;
+  height: 50px;
+  width: 190px;
+  text-align: center;
+  font-size: 25px;
+  line-height: 50px;
+  background: #ff4040;
+  overflow: hidden;
+  text-decoration:none;
+  cursor: pointer;
 }
-.btn-area button {
-	display: block;
-	/* position: relative; */
-  width: 320px;
-  height: 60px;
-	padding: 0.8em;
-	text-align: center;
-	text-decoration: none;
-	color: #1B1B1B;
-	background: #fff;
-        border-radius: 30px;
-	border:1px solid #1B1B1B;
-	 -webkit-backface-visibility: hidden; 
-	-moz-backface-visibility: hidden;
-    backface-visibility: hidden;
+
+.btn span {
+  display:inline-block;
+  transition: .5s;
 }
-.btn-area button:hover {
-	 cursor: pointer;
-	 text-decoration: none;
-	-webkit-animation: key_frame_gyun 0.5s both;
-	-moz-animation: key_frame_gyun 0.5s both;
-	        animation: key_frame_gyun 0.5s both;
+
+.btn:hover span {
+  -webkit-transform: rotateX(360deg);
+  transform: rotateX(360deg);
 }
-@-webkit-keyframes key_frame_gyun {
-  0% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-  }
-  100% {
-    -webkit-transform: scale(1.1);
-            transform: scale(1.1);
-  }
+
+.anser-text, .question-text {
+  font-size: 2rem;
 }
-@-moz-keyframes key_frame_gyun {
-  0% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-  }
-  100% {
-    -webkit-transform: scale(1.1);
-            transform: scale(1.1);
-  }
+
+.under-red {
+    background: linear-gradient(transparent 70%, #ff99ab 70%);
 }
-@keyframes key_frame_gyun {
-  0% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-  }
-  100% {
-    -webkit-transform: scale(1.1);
-            transform: scale(1.1);
-  }
+
+input[type="text"] {
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: none;
+  border-radius: 0;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-bottom:#ff99ab 1px solid;
+  width: 80%;
+  font-size: 1.5rem;
+}
+
+.correct {
+  font-size: 3rem;
+  color: #ff99ab;
+}
+
+.uncorrect {
+  font-size: 3rem;
+  color: #117CB1;
 }

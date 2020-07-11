@@ -3,10 +3,8 @@ import ReactDOM from 'react-dom'
 import './index.css'
 
 const l = [
-  'ぐるなびは常に勉強して進化します。',
-  'ぐるなびは皆様方の力を借りて進化します。',
-  'ぐるなびは皆様方の知恵を借りて進化します。',
-  'ぐるなびは21世紀の食生活を豊かにするために進化し続けます。'
+  'テスト１',
+  'テスト２'
 ]
 const text = l[Math.floor(Math.random() * l.length)]
 
@@ -17,12 +15,13 @@ class Question extends React.Component {
 
   render() { 
     return (
-      <div>
+      <div className="question-text">
         <div>
           {this.props.timer}
         </div>
+        <br />
         <div>
-          {text}
+          <span className="under-red">{text}</span>
         </div>
       </div>
     )
@@ -33,30 +32,39 @@ class Anser extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      result: ''
+      correct: null
     }
   }
 
   clickAnser(v) {
-    this.setState({ result: (v === text) ? "正解" : "不正解" })
+    this.setState({ correct: (v === text)})
   }
 
   render() {
+    let dom = ''
+    if (this.state.correct != null) {
+      dom = this.state.correct ? (<span className="correct">正解</span>) : (<span className="uncorrect">不正解</span>)
+    }
     return (
-      <div>
+      <div className="anser-text">
         <div>
           Come on! Enter!
-      </div>
+        </div>
+        <br />
         <div>
           <input
             type="text"
             ref={input => { this.input = input }} />
         </div>
+        <br />
         <div>
-          <button type="button" onClick={() => this.clickAnser(this.input.value)}>FinalAnser?</button>
+          <a class="btn" onClick={() => this.clickAnser(this.input.value)}>
+            <span>FinalAnser?</span>
+          </a>
         </div>
+        <br />
         <div>
-          {this.state.result}
+          {dom}
         </div>
       </div>
     )
@@ -115,9 +123,9 @@ class Main extends React.Component {
   render() {
     const status = this.state.start
     const startButton = (
-      <div className="btn-area">
-        <button onClick={() => this.clickStart()}>Ready...</button>
-      </div>
+      <a class="btn" onClick={() => this.clickStart()}>
+        <span>Ready...</span>
+      </a>
     )
     const content = (<Content />)
   
