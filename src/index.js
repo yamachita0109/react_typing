@@ -3,8 +3,10 @@ import ReactDOM from 'react-dom'
 import './index.css'
 
 const l = [
-  'テスト１',
-  'テスト２'
+  'ぐるなびは常に勉強して進化します。',
+  'ぐるなびは皆様方の力を借りて進化します。',
+  'ぐるなびは皆様方の知恵を借りて進化します。',
+  'ぐるなびは21世紀の食生活を豊かにするために進化し続けます。'
 ]
 const text = l[Math.floor(Math.random() * l.length)]
 
@@ -43,7 +45,7 @@ class Anser extends React.Component {
   render() {
     let dom = ''
     if (this.state.correct != null) {
-      dom = this.state.correct ? (<span className="correct">正解</span>) : (<span className="uncorrect">不正解</span>)
+      dom = this.state.correct ? (<span className="correct">Congratulations!!</span>) : (<span className="uncorrect">Failed..</span>)
     }
     return (
       <div className="anser-text">
@@ -75,7 +77,7 @@ class Content extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      timer: 3,
+      timer: 10,
       isAnser: false
     }
   }
